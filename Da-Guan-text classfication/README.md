@@ -3,6 +3,7 @@
 * Task:文本分类问题
 
 比赛详情 [达观杯文本智能处理挑战赛](http://www.dcjingsai.com/common/cmpt/%E2%80%9C%E8%BE%BE%E8%A7%82%E6%9D%AF%E2%80%9D%E6%96%87%E6%9C%AC%E6%99%BA%E8%83%BD%E5%A4%84%E7%90%86%E6%8C%91%E6%88%98%E8%B5%9B_%E7%AB%9E%E8%B5%9B%E4%BF%A1%E6%81%AF.html) 
+
 排名情况 [排行榜](https://www.dcjingsai.com/common/cmpt/%E2%80%9C%E8%BE%BE%E8%A7%82%E6%9D%AF%E2%80%9D%E6%96%87%E6%9C%AC%E6%99%BA%E8%83%BD%E5%A4%84%E7%90%86%E6%8C%91%E6%88%98%E8%B5%9B_%E6%8E%92%E8%A1%8C%E6%A6%9C.html)
 
 ## 比赛任务描述
@@ -39,59 +40,31 @@ word2vec
 ```
 文件夹介绍
 	——dataset:
-  
 		训练集和测试集放入该文件夹下。数据集到比赛官网上下载
-    
 	——emb_build:
-  
 		预训练词向量，词向量文件也在该文件夹下
-    
 	——ensemble:
-  
 		最后模型融合，文件夹下将需要融合的模型名字写到ensemble_list.txt文件中，然后执行ensemble.py即可
-    
 	    -result:
-      
 		模型融合后的预测数据在该文件夹下找到
-    
 	——models:
-  
 		所有用到的模型结构都在这个文件夹下，对应找到python文件查看具体结构
-    
 	——result：
-  
 		文件夹存储预测结果以及模型给出的概率预测（概率用于后面模型融合，很重要，存储为npy文件）
-    
 	——snapshot：
-  
 		这个文件夹下存储训练过程中的模型参数以及最终的模型权重
-    
 	——test_predict:
-  
-
 	——utils：
-  
 		主要是前期的数据集划分的文件
-    
-
 	——config.py:
-  
 		主要要设置的一些初始化参数
-    
 	——data.py:
-  
 		数据预处理
-    
 	——gen_test_result.py
-  
 	——local_concat_df.py
-  
 	——main.py:
-  
 		主要的训练函数在这
-    
 	——temp.py
-  
 ```
 具体的用法可以在对应的python文件（末尾）可以看到，或者文件夹下有对应的说明。
 
