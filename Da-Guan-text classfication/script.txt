@@ -1,0 +1,55 @@
+#version1
+
+
+服务器端：
+
+1. 执行训练文件main.py：
+	python main.py main  --model='GRU' --device=0 --Id='word2'
+
+	（model:指定使用的模型， device：指定使用的GPU， Id：指定模型名字， text_type: 指定采用词数据还是字数据）
+	(还有一些网络结构的参数以及训练的参数，参见config.py）
+
+	训练完毕后，文件夹snapshot将会存储模型，名字为'model'+'_'+'text_type'_+'F1score'+'.pth'
+		   文件夹result将会存储模型在测试阶段生成的预测文件，分别为预测概率的.npy文件和预测分类的文件'.csv'
+				//已解决：但是csv文件有可能训练过程中因为内存爆炸，导致无法加载test_set文件，因此会终止，无法生成上述csv文件
+
+2. 执行生成预测值文件gen_test_result.py：
+	python gen_test_result.py gen_test --name='GRU_word_0.7681885459985601.pth' --device='0'
+
+	(name: 预训练模型的具体文件名称，如上第一步执行训练完之后生成的文件， 'device':注意这里还是需要分别GPU，如果使用GPU进行预测的话)
+	
+	执行预测完毕之后，文件夹result下会存储预测结果：如'GRU_word_0.7681885459985601.csv'，//已解决：注意带有_predict的csv文件只是生成了预测值，
+		//但是没有将id存储下来。这是因为在服务器上依然会有cpu不足的问题存在，在导入test_set进程会以意外中断，因此考虑到本地生成完整的预测结果文件
+
+//本地：
+
+//3. 执行最终结果生成文件local_concat_df.py：
+	//python local_concat_df.py main --name='FastText_word1_0.7407834190815604_predict'
+
+	//（name:模型预测的结果）
+
+
+==========================================================================================================
+#version2
+
+
+服务器端：
+
+
+1. 执行训练文件main.py：
+	python main.py main  --model='GRU' --device=0 --Id='word2'
+
+	（model:指定使用的模型， device：指定使用的GPU， Id：指定模型名字， text_type: 指定采用词数据还是字数据）
+	(还有一些网络结构的参数以及训练的参数，参见config.py）
+
+	训练完毕后，文件夹snapshot将会存储模型，名字为'model'+'_'+'text_type'_+'F1score'+'.pth'
+		   文件夹result将会存储模型在测试阶段生成的预测文件，分别为预测概率的.npy文件和预测分类的文件'.csv'
+
+
+2. 执行生成预测值文件gen_test_result.py：
+
+	python gen_test_result.py gen_test --list_txt='model_list.txt' --device='0'
+
+	（写好一个model_list.txt的文件，存到snapshot文件夹下，执行上述命令，就可以对txt文件中的所有model依次生成）
+
+
