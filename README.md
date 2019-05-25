@@ -1,7 +1,7 @@
 # My-Competition
 一些比赛项目的代码
 
-## 2018达观杯文本智能处理挑战赛 
+## [2018达观杯文本智能处理挑战赛 ](https://github.com/Zian-Zhou/My-Competition/tree/master/Da-Guan-text%20classfication)
 比赛详情见[达观杯文本智能处理挑战赛](https://www.dcjingsai.com/common/cmpt/%E2%80%9C%E8%BE%BE%E8%A7%82%E6%9D%AF%E2%80%9D%E6%96%87%E6%9C%AC%E6%99%BA%E8%83%BD%E5%A4%84%E7%90%86%E6%8C%91%E6%88%98%E8%B5%9B_%E7%AB%9E%E8%B5%9B%E4%BF%A1%E6%81%AF.html) 
 
 （非比赛期间参加的）
